@@ -1,0 +1,13 @@
+This is a library to implement a linked list. The linked list contains a node of the structure:
+
+struct node{
+	void *data; // A generic data pointer
+	struct node *next;
+}
+
+
+This structure can hold any generic data type.
+
+The reason for implementing a linked list library is because its a very common
+data structure that i use frequently for my project. So thought it would be
+a good idea to just create a library in c for it.
