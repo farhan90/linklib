@@ -12,10 +12,11 @@ struct node{
 };
 
 
-void insert_sorted(struct node **root,struct node *node,int size);
+void insert_node(struct node **root,struct node *node,int size);
 void free_list(struct node **root);
 struct node *create_node(void *data,int data_size);
-struct node *find(struct node **root,void *data,int data_size);
+struct node *find_node(struct node **root,void *data,int data_size);
+void remove_node(struct node **root,void *data,int data_size);
 #endif
 
 

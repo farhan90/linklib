@@ -5,7 +5,7 @@
 Since we are inserting in a sorted order we need to specify a size
 for the memcmp function which will compare the data */
 
-void insert_sorted(struct node **root,struct node *node,int size){
+void insert_node(struct node **root,struct node *node,int size){
 
 	struct node *ptr=*root;
 	//struct node *prev_ptr=NULL;
@@ -47,7 +47,7 @@ struct node *create_node(void* data,int data_size){
 
 /*Will return the first node containing the data
 in case of duplicates */
-struct node *find(struct node **root,void *data,int data_size){
+struct node *find_node(struct node **root,void *data,int data_size){
 	struct node *ptr=*root;
 
 	while(ptr->next!=NULL){
@@ -72,3 +72,28 @@ void free_list(struct node **root){
 
 }
 
+
+void remove_node(struct node **root, void *data,int size){
+	struct node *curr=*root;
+	struct node *prev_ptr=NULL;
+
+	while(curr){
+		if(memcmp(curr->data,data,size)==0){
+			if(prev_ptr==NULL){
+				*root=curr->next;
+				free(curr->data);
+				free(curr);
+				break;	
+			}
+			else{
+				prev_ptr->next=curr->next;
+				free(curr->data);
+				free(curr);
+				break;	
+			}
+		}
+
+		prev_ptr=curr;
+		curr=curr->next;
+	}
+}

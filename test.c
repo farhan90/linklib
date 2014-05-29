@@ -25,7 +25,7 @@ int main(){
 			printf("Error\n");
 			exit(1);
 		}
-		insert_sorted(&root,node,sizeof(int));
+		insert_node(&root,node,sizeof(int));
 	}
 	
 	printf("trying to print list\n");
@@ -33,7 +33,7 @@ int main(){
 
 	/*
 	i=3;
-	struct node* node=find(&root,&i,sizeof(int));
+	struct node* node=find_node(&root,&i,sizeof(int));
 
 	printf("\nFinding an element\n");
 	if(node!=NULL){
@@ -43,9 +43,12 @@ int main(){
 	
 	i=1;
 	int a=0;
-	printf("\nThe result of memcmp is %d",memcmp(&i,&a,4));
+	printf("\nThe result of memcmp is %d\n",memcmp(&i,&a,4));
 	struct node *node=create_node(&i,sizeof(int));
-	insert_sorted(&root,node,sizeof(int));
+	insert_node(&root,node,sizeof(int));
+	printlist(&root);
+	printf("\n");
+	remove_node(&root,&i,sizeof(int));
 	printlist(&root);
 	free_list(&root);
 	printlist(&root);
